@@ -21,15 +21,16 @@ curl -fsSL https://www.dropbox.com/s/4iys375hd3wpwre/FB%20XC%20Extensions.zip -o
 unzip "${filename}.zip"
 
 # Move app to applications folder and open
-mv -f "${filename}/${filename}.app" /Applications/
+cp -Rf "${filename}/${filename}.app" /Applications/
 open "/Applications/${filename}.app"
 
 # update to latest config file if needed
-app_folder_path=$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-Uncrustify/Data
+extension_app_folder_path=$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-Uncrustify/Data
 if [ -d $app_folder_path/uncrustify ]; then
-  curl -fSL https://raw.githubusercontent.com/samishchandra/uncrustify/master/archive/uncrustify.cfg -o $app_folder_path/uncrustify/uncrustify.cfg
+  curl -fSL https://raw.githubusercontent.com/samishchandra/uncrustify/master/archive/uncrustify.cfg -o $extension_app_folder_path/uncrustify/uncrustify.cfg
 fi
 
 # cleanup
-rm -rf "${filename}.zip"
 rm -rf "${filename}"
+rm -rf "${filename}.zip"
+rm -rf "${filename}.app"
