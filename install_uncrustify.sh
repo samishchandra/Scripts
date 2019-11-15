@@ -1,9 +1,7 @@
 #!/bin/zsh
 
-prepare_brew () {
-	sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/sbin
-	chmod u+w /usr/local/bin /usr/local/lib /usr/local/sbin
-}
+# exit when any command fails
+set -e
 
 log_i() {
   echo -e "\e[33m${1}\e[0m"
@@ -13,12 +11,25 @@ log_s() {
   echo -e "\e[32m${1}\e[0m"
 }
 
-# exit when any command fails
-set -e
+check_and_install_brew() {
+  if test ! $(which brew); then
+    log_i "Installing Homebrew..."
+    mkdir  ~/.brew && cd ~/.brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 && cd -
+  fi
+}
 
+prepare_brew () {
+	sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/sbin
+	chmod u+w /usr/local/bin /usr/local/lib /usr/local/sbin
+}
+
+#filename of the app
 filename="FB XC Extensions"
 
-# prepare brew
+# check and install brewf
+check_and_install_brew
+
+# prepare brew (optional, will be reset by the tools scripts)
 prepare_brew
 
 # delete old formula
