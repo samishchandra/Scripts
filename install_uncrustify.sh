@@ -69,5 +69,6 @@ log_i "Cleanup"
 rm -rf "${filename}"
 rm -rf "${filename}.zip"
 rm -rf "${filename}.app"
+rm -rf "__MACOSX"
 
 log_s "Successfully Upgraded!"
