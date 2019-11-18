@@ -61,7 +61,7 @@ open "/Applications/${filename}.app"
 log_i "Updating config file for Xcode Extensions"
 extension_app_folder_path=$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-Uncrustify/Data
 if [ -d $app_folder_path/uncrustify ]; then
-  curl -fSL https://raw.githubusercontent.com/samishchandra/uncrustify/master/archive/uncrustify.cfg -o $extension_app_folder_path/uncrustify/uncrustify.cfg
+  curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $extension_app_folder_path/uncrustify/uncrustify.cfg
 fi
 
 # cleanup
