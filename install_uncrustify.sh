@@ -29,6 +29,9 @@ check_and_install_brew
 # prepare brew (optional, will be reset by the tools scripts)
 prepare_brew
 
+# force link
+brew link --overwrite samish_uncrustify
+
 # delete old formula
 log_i "Removing existing Uncrustify formula"
 brew formula samish_uncrustify | xargs rm -rf
