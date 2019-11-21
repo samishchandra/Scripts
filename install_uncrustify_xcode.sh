@@ -35,7 +35,7 @@ if [ -d $app_folder_path/uncrustify ]; then
 fi
 
 # cleanup files
-log_i "Cleanup"
+log_i "Cleanup files"
 rm -rf "$filename"
 rm -rf "$filename.zip"
 rm -rf "$filename.app"
