@@ -30,7 +30,7 @@ check_and_install_brew
 prepare_brew
 
 # force link
-brew link --overwrite samish_uncrustify
+# brew link --overwrite samish_uncrustify
 
 # delete old formula
 log_i "Removing existing Uncrustify formula"
