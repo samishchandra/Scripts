@@ -14,7 +14,7 @@ log_s() {
 check_and_install_brew() {
   if test ! $(which brew); then
     log_i "Installing Homebrew..."
-    mkdir  ~/.brew && cd ~/.brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 && cd -
+    mkdir  ~/.brew && cd ~/.brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 && cd -;
   fi
 }
 
@@ -34,7 +34,7 @@ prepare_brew
 
 # delete old formula
 log_i "Removing existing Uncrustify formula"
-brew formula samish_uncrustify | xargs rm -rf
+(brew formula samish_uncrustify | xargs rm -rf) 2> /dev/null
 
 # brew install samish_uncrustify
 log_i "Installing Uncrustify"
