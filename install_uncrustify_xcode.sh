@@ -16,7 +16,7 @@ filename="FB XC Extensions"
 
 # download Xcode extension
 log_i "Downloading Xcode extension"
-curl -fsSL https://www.dropbox.com/s/jfxiugx3v578rz5/FB%20XC%20Extensions.zip -o "$filename.zip"
+curl -fsSL https://www.dropbox.com/s/dz55o7bqeke9ewo/FB%20XC%20Extensions.zip -o "$filename.zip"
 
 # unzip Xcode extension
 log_i "Unzipping Xcode extension"
