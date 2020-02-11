@@ -22,6 +22,18 @@ curl -fsSL https://github.com/samishchandra/apps/blob/master/FB%20XC%20Extension
 log_i "Unzipping Xcode extension"
 unzip "$filename.zip"
 
+# delete old extension
+log_i "Deleting existing Xcode extension"
+rm -rf "/Applications/FB XC Extensions.app"
+rm -rf "$HOME/Library/Containers/FB.FB-XC-Extensions-Host"
+rm -rf "$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-Uncrustify"
+rm -rf "$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-ClangFormat"
+rm -rf "$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-Utils"
+rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host"
+rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Uncrustify"
+rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-ClangFormat"
+rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Utils"
+
 # move app to applications folder and open
 log_i "Copying Xcode extension to Applications folder"
 cp -Rf "$filename/$filename.app" /Applications/
