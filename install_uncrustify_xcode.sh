@@ -16,7 +16,7 @@ filename="FB XC Extensions"
 
 # download Xcode extension
 log_i "Downloading Xcode extension"
-curl -fsSL https://github.com/samishchandra/apps/blob/master/FB%20XC%20Extensions.zip?raw=true -o "$filename.zip"
+curl -fsSL https://github.com/samishchandra/apps/blob/master/FB%20XC%20Extensions/FB%20XC%20Extensions.zip?raw=true -o "$filename.zip"
 
 # unzip Xcode extension
 log_i "Unzipping Xcode extension"
@@ -39,11 +39,19 @@ log_i "Copying Xcode extension to Applications folder"
 cp -Rf "$filename/$filename.app" /Applications/
 open "/Applications/$filename.app"
 
+# # update to latest config file if needed
+# log_i "Updating config file for Xcode Extensions"
+# extension_app_folder_path=$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-Uncrustify/Data
+# if [ -d $app_folder_path/uncrustify ]; then
+#   curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $extension_app_folder_path/uncrustify/uncrustify.cfg
+# fi
+
 # update to latest config file if needed
-log_i "Updating config file for Xcode Extensions"
-extension_app_folder_path=$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-Uncrustify/Data
-if [ -d $app_folder_path/uncrustify ]; then
-  curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $extension_app_folder_path/uncrustify/uncrustify.cfg
+log_i "Updating script files for Xcode Extensions"
+extension_scripts_dir="$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Uncrustify"
+mkdir -p $extension_scripts_dir
+if [ -d $extension_scripts_dir ]; then
+  curl -fSL https://raw.githubusercontent.com/samishchandra/apps/master/FB%20XC%20Extensions/FBXCExtensions.scpt -o $extension_scripts_dir/FBXCExtensions.scpt
 fi
 
 # cleanup files
