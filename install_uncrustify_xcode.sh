@@ -20,6 +20,7 @@ curl -fsSL https://github.com/samishchandra/apps/blob/master/FB%20XC%20Extension
 
 # unzip Xcode extension
 log_i "Unzipping Xcode extension"
+rm -rf "$filename"
 unzip "$filename.zip"
 
 # delete old extension
@@ -34,7 +35,7 @@ rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Uncrustify
 rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-ClangFormat"
 rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Utils"
 
-# move app to applications folder and open
+# Move Extensions app to applications folder and Open
 log_i "Copying Xcode extension to Applications folder"
 cp -Rf "$filename/$filename.app" /Applications/
 open "/Applications/$filename.app"
@@ -46,12 +47,12 @@ open "/Applications/$filename.app"
 #   curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $extension_app_folder_path/uncrustify/uncrustify.cfg
 # fi
 
-# update to latest config file if needed
-log_i "Updating script files for Xcode Extensions"
+# Copy script files
+log_i "Copying script files for Xcode Extensions"
 extension_scripts_dir="$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Uncrustify"
-mkdir -p $extension_scripts_dir
-if [ -d $extension_scripts_dir ]; then
-  curl -fSL https://raw.githubusercontent.com/samishchandra/apps/master/FB%20XC%20Extensions/FBXCExtensions.scpt -o $extension_scripts_dir/FBXCExtensions.scpt
+mkdir -p "$extension_scripts_dir"
+if [[ -d "$extension_scripts_dir" ]]; then
+  curl -fSL https://raw.githubusercontent.com/samishchandra/apps/master/FB%20XC%20Extensions/FBXCExtensions.scpt -o "$extension_scripts_dir/FBXCExtensions.scpt"
 fi
 
 # cleanup files
