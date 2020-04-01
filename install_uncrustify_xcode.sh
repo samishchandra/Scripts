@@ -35,19 +35,12 @@ rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Uncrustify
 rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-ClangFormat"
 rm -rf "$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Utils"
 
-# Move Extensions app to applications folder and Open
+# move Extensions app to applications folder and open
 log_i "Copying Xcode extension to Applications folder"
 cp -Rf "$filename/$filename.app" /Applications/
 open "/Applications/$filename.app"
 
-# # update to latest config file if needed
-# log_i "Updating config file for Xcode Extensions"
-# extension_app_folder_path=$HOME/Library/Containers/FB.FB-XC-Extensions-Host.FB-Uncrustify/Data
-# if [ -d $app_folder_path/uncrustify ]; then
-#   curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $extension_app_folder_path/uncrustify/uncrustify.cfg
-# fi
-
-# Copy script files
+# copy script files
 log_i "Copying script files for Xcode Extensions"
 extension_scripts_dir="$HOME/Library/Application Scripts/FB.FB-XC-Extensions-Host.FB-Uncrustify"
 mkdir -p "$extension_scripts_dir"
