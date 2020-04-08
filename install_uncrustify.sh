@@ -41,7 +41,7 @@ log_i "Installing Uncrustify"
 brew reinstall -f https://raw.githubusercontent.com/samishchandra/homebrew/master/Formula/samish_uncrustify.rb
 
 # update config file
-log_i "Updating Uncrustify config file"
-curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $HOME/uncrustify.cfg
+# log_i "Updating Uncrustify config file"
+# curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $HOME/uncrustify.cfg
 
 log_s "Successfully Updated Uncrustify !!"
