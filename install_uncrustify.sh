@@ -38,10 +38,12 @@ log_i "Removing existing Uncrustify formula"
 
 # brew install samish_uncrustify
 log_i "Installing Uncrustify"
-brew reinstall -f https://raw.githubusercontent.com/samishchandra/homebrew/master/Formula/samish_uncrustify.rb
+curl -fSLO https://raw.githubusercontent.com/samishchandra/homebrew/master/Formula/samish_uncrustify.rb
+brew reinstall -s samish_uncrustify.rb
+rm -rf samish_uncrustify.rb
 
 # update config file
-# log_i "Updating Uncrustify config file"
-# curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $HOME/uncrustify.cfg
+log_i "Updating Uncrustify config file"
+curl -fSL https://raw.githubusercontent.com/samishchandra/homebrew/master/archive/uncrustify/uncrustify.cfg -o $HOME/uncrustify.cfg
 
 log_s "Successfully Updated Uncrustify !!"
